@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  accounting-server:
+    container_name: NODEJS_SERVER_ACCOUNTING
+    build: "."
+    volumes:
+      - ./src:/node-app
+      - ./node_modules:/node-app/node_modules
+    environment:
+      NODE_ENV: development
+    ports:
+      - "6000:6000"
+
+networks:
+  default:
+    external:
+      name: customnet
